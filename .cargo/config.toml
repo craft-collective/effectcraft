@@ -1,2 +1,7 @@
 [alias]
 xtask = "run --quiet --package xtask --"
+
+[env]
+# Written by the pilot's metadata commit: where this fork's pinned dependencies come from.
+CRAFT_LIBS_GIT = "https://github.com/craft-collective/craft-libs"
+CRAFT_LIBS_REV = "077c2cec152eabd67f9645667ebc817fbb84fa53"
