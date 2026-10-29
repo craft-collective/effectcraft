@@ -150,7 +150,9 @@ and bitmap allocation.
 
 The root Cargo patch pins Hayro-syntax and Hayro-jbig2 to the same `storytold/craft-libs` revision. `cargo xtask pdf-deps` checks this graph and refuses
 an enabled Hayro interpreter, rasterizer or CMap dependency. The shared revision must be
-published before a fresh app checkout can resolve it; no sibling checkout is required.
+published before a fresh app checkout can resolve it; no sibling checkout is required. A build
+against a fork of craft-libs sets `CRAFT_LIBS_GIT` to the fork's URL, as Cargo.lock records it,
+and `CRAFT_LIBS_REV` to its full commit hash, and the check then requires that source instead.
 
 Input is limited to 512 MiB. The object adapter admits at most 100,000 document/referenced
 objects, 1,000,000 converted values and 64 inline nesting levels, with a 512 MiB retained
